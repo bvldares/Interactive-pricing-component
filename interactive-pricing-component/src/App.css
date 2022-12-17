@@ -35,7 +35,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: 'Manrope', sans-serif;
-
+  background-color: #F1F4FF;
 }
 
 /* A elements that don't have a class get default styles */
@@ -74,7 +74,17 @@ select {
   }
 }
 
+:root{
+  --clr-green : #16d5bf;
+}
+
+#root{
+  display: flex;
+  height: 100vh;
+}
+
 main{
+    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,15 +96,238 @@ main{
     background-size: 40%;
     background-repeat: no-repeat;
     background-position: center;
+    padding: 2em;
+    margin-bottom: 1em;
     
 }
 
 .intro-title{
     font-size: 1.3rem;
-    columns: #252525;
-    margin-bottom: .6em;
+    color: #252525;
 }
 
 .intro-description{
     color: grey;
+}
+
+form{
+  background-color: #fff;
+  padding:2em 2em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 8px;
+  width: 90%;
+}
+
+.views{
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  color: grey;
+  font-size: .875rem;
+}
+
+input[type=range]{
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 2em 0;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  height: 10px;
+  background: var(--clr-green);
+  border: none;
+  border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: var(--clr-green);
+  margin-top: -13px;
+}
+input[type=range]:focus {outline: none;}
+input[type=range]:active::-webkit-slider-runnable-track {
+  background: #ccc;
+}
+
+
+input[type=range]::-webkit-slider-thumb:hover,
+input[type=range]::-webkit-slider-thumb:active{
+  box-shadow: 0px 0px 35px #16d5bf;
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+.price{
+  font-size: 2rem;
+  margin-left: .5em;
+}
+
+span{
+  font-size: 1rem;
+  color: grey;
+}
+
+
+
+.form-period{
+  color: grey;
+  margin: 1em 0;
+  display: flex;
+  justify-content: space-evenly;
+  position:relative;
+}
+
+/*Styling Toogle*/
+
+input[type=checkbox]{
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  display: none;
+}
+
+label {
+  margin: 0 .25em;
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 40px;
+  height: fit-content;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: #16d5bf;
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 16px;
+}
+
+.yearly::after{
+  content: "-25%";
+  position: absolute;
+  background-color: #EECDC0;
+  margin-left: .2em;
+  top: 100%;
+  right: 15%;
+  font-size: .875rem;
+  padding: .1em;
+  border-radius: 8px;
+}
+
+.form-footer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service-information{
+  list-style: none;
+  padding: 0;
+}
+
+.information{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: .3em;
+}
+
+.information img{
+  margin-right: .5em;
+}
+
+.submit-btn{
+  padding: 1em 3em;
+  border-radius: 20px;
+  border: none;
+  background-color: #26364B;
+  color: #a4b9e0;
+}
+
+.submit-btn:hover,
+.submit-btn:active{
+  background-color: var(--clr-green);
+  color: #fff;
+}
+
+
+@media (min-width:600px){
+   
+  body{
+      background-image: url("./assets/images/bg-pattern.svg");
+      background-size: cover;
+   }
+
+   form{
+    width: 100%;
+    max-width: 800px;
+   }
+
+   .form-pricing{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+   }
+
+   .views{
+    align-self: center;
+    font-size: 1rem;
+   }
+   
+
+   .price{
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+   }
+
+   input[type=range]{
+      width: 100%;
+      grid-column: 1/3;
+      grid-row: 2;
+   }
+
+
+   .form-footer{
+      flex-direction: row;
+      column-gap: 4em;
+      margin-top: 1em;
+   }
+
+
+   .yearly::after{
+    position: absolute;
+    margin-left: .2em;
+    left: 90%;
+    right: 0;
+    top: 0;
+    font-size: .875rem;
+    padding: .1em;
+    border-radius: 8px;
+   }
 }
