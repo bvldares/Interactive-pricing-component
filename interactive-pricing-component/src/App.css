@@ -35,7 +35,10 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: 'Manrope', sans-serif;
-  background-color: #F1F4FF;
+  background-color: #dce2fa;
+  background-image: url("./assets/images/bg-pattern.svg");
+  background-size: 100% 80%;
+  background-repeat: no-repeat;
 }
 
 /* A elements that don't have a class get default styles */
@@ -171,8 +174,6 @@ span{
   color: grey;
 }
 
-
-
 .form-period{
   color: grey;
   margin: 1em 0;
@@ -205,7 +206,7 @@ label {
 label:after {
   content: '';
   position: absolute;
-  top: 3px;
+  top: 2.5px;
   left: 5px;
   width: 18px;
   height: 18px;
@@ -277,11 +278,6 @@ label:active:after {
 
 
 @media (min-width:600px){
-   
-  body{
-      background-image: url("./assets/images/bg-pattern.svg");
-      background-size: cover;
-   }
 
    form{
     width: 100%;
